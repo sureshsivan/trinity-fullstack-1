@@ -3,6 +3,7 @@ var app = express();
 var mongoose = require('mongoose');
 var config = require('./config');
 var setupController = require('./controllers/setup-controller');
+var apiController = require('./controllers/api-controller');
 
 var port = process.env.PORT || 8080;
 
@@ -12,6 +13,8 @@ app.set('view engine', 'ejs');
 mongoose.connect(config.getDbConnStr());
 
 setupController(app);
+apiController(app);
 
 app.listen(port);
+
 
